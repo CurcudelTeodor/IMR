@@ -1,0 +1,1 @@
+Echipa formata din: Barbulescu Robert, Curcudel Teodor, Enea Iustin

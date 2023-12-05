@@ -16,3 +16,12 @@
 * [x] Video demonstrativ 
 * [x] Poze cu scena
 
+### Week 9
+
+* [x] Am creat o scena noua in care am adaugat modele noi pentru maini 
+* [x] Am adaugat animatii pentru maini
+* [x] Am implementat metodele de grab si pinch (cu tastatura -> cam greu de lucrat asa)
+* [x] Am adugat un exemplu de interactable cu care interacationeaza mainile (il pot apuca)
+* [x] Am adaugat box colliders pentru a servi drept exemplu
+* [x] Video demonstrativ 
+* [x] Poze cu mainile, actiunile mainilor, script-uri

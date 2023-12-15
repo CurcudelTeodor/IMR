@@ -25,3 +25,8 @@
 * [x] Am adaugat box colliders pentru a servi drept exemplu
 * [x] Video demonstrativ 
 * [x] Poze cu mainile, actiunile mainilor, script-uri
+
+### Week 9
+
+* [x] Am adaugat locomotion system
+* [x] Am pentru toate armele grab pointuri si le putem ridica si arunca.

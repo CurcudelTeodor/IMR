@@ -26,7 +26,9 @@
 * [x] Video demonstrativ 
 * [x] Poze cu mainile, actiunile mainilor, script-uri
 
-### Week 9
+### Week 10
 
-* [x] Am adaugat locomotion system
-* [x] Am pentru toate armele grab pointuri si le putem ridica si arunca.
+* [x] Armele au grab pointuri si le putem ridica si arunca.
+* [x] Am implementat Weapon System cu Scriptable Objects
+* [x] Am sters fisiere inutile
+* [ ] Am vrea sa testam functionalitatile de grab si de shoot pt arme

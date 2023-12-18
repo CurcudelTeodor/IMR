@@ -35,4 +35,6 @@
 
 ### Week 11
 
-* [x] Am implementat shoot pentru o arma! (pistol_mac G grab, F shoot)
+* [x] Shooting for pistol_mac si M4A1 with different bullet speeds! (pistol_mac G grab, F shoot)
+* [x] Scriptable Objects for pistol_mac and M4A1
+* [x] Teleportation with G

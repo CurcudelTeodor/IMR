@@ -9,10 +9,12 @@ public class FireBulletOnActivate : MonoBehaviour
     public Transform spawnPoint;
     public float fireSpeed = 20;
 
+    private XRGrabInteractable grabbable;
+
     // Start is called before the first frame update
     void Start()
     {
-        XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
+        grabbable = GetComponent<XRGrabInteractable>();
         grabbable.activated.AddListener(FireBullet);
     }
 
@@ -20,7 +22,7 @@ public class FireBulletOnActivate : MonoBehaviour
     void Update()
     {
         // Check for input, for example, when the 'F' key is pressed
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && grabbable.isSelected)
         {
             FireBullet(null);
         }

@@ -31,4 +31,8 @@
 * [x] Armele au grab pointuri si le putem ridica si arunca.
 * [x] Am implementat Weapon System cu Scriptable Objects
 * [x] Am sters fisiere inutile
-* [ ] Am vrea sa testam functionalitatile de grab si de shoot pt arme
+* [x] Am vrea sa testam functionalitatile de grab si de shoot pt arme
+
+### Week 11
+
+* [x] Am implementat shoot pentru o arma! (pistol_mac G grab, F shoot)

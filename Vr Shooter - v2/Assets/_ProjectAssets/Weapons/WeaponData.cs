@@ -7,4 +7,5 @@ public class WeaponData : ScriptableObject
     public int damage;
     public int magSize;
     public int fireSpeed;
+    public AudioClip fireSound;
 }

@@ -8,7 +8,6 @@ public class FireBulletOnActivate : MonoBehaviour
 {
     public GameObject bullet;
     public Transform spawnPoint;
-    public AudioSource fireSound;
 
     private XRGrabInteractable grabbable;
 
@@ -32,15 +31,22 @@ public class FireBulletOnActivate : MonoBehaviour
     public void FireBullet(ActivateEventArgs arg)
     {
         Debug.Log("Fired the bullet");
-        if (fireSound != null)
-        {
-            fireSound.Play();
-        }
 
         // Retrieve WeaponData from the associated weapon
         Weapon weapon = GetComponent<Weapon>();
         if (weapon != null && weapon.weaponData != null)
         {
+            // Play the fire sound from the associated WeaponData
+            AudioClip fireSound = weapon.weaponData.fireSound;
+            if (fireSound != null)
+            {
+                AudioSource.PlayClipAtPoint(fireSound, transform.position);
+            }
+            else
+            {
+                Debug.LogWarning("Fire Sound not assigned in WeaponData.");
+            }
+
             float fireSpeed = weapon.weaponData.fireSpeed;
 
             GameObject spawnedBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);

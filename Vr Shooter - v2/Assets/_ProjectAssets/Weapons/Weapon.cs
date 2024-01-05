@@ -11,6 +11,14 @@ public class Weapon : MonoBehaviour
         Debug.Log("Mag size: " + weaponData.magSize);
         Debug.Log("Fire Speed:" + weaponData.fireSpeed);
 
+        if (weaponData.fireSound != null)
+        {
+            Debug.Log("Fire Sound: " + weaponData.fireSound.name);
+        }
+        else
+        {
+            Debug.LogWarning("Fire Sound not assigned.");
+        }
     }
 
     

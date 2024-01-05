@@ -8,6 +8,7 @@ public class FireBulletOnActivate : MonoBehaviour
     public GameObject bullet;
     public Transform spawnPoint;
     public float fireSpeed = 20;
+    public AudioSource fireSound;
 
     private XRGrabInteractable grabbable;
 
@@ -29,12 +30,21 @@ public class FireBulletOnActivate : MonoBehaviour
     }
 
     public void FireBullet(ActivateEventArgs arg)
-    {   
+    {
         Debug.Log("Fired the bullet");
+        if (fireSound != null)
+        {
+            fireSound.Play();
+        }
         GameObject spawnedBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
         Rigidbody bulletRb = spawnedBullet.GetComponent<Rigidbody>();
-        bulletRb.velocity = spawnPoint.forward * fireSpeed;
+
+        float randomAngle = Random.Range(-5f, 5f);
+        Vector3 randomRotation = Quaternion.AngleAxis(randomAngle, spawnPoint.up) * spawnPoint.forward;
+        bulletRb.velocity = randomRotation * fireSpeed;
+
         bulletRb.constraints = RigidbodyConstraints.FreezeRotation;
-        Destroy(spawnedBullet, 10); // Increase the lifetime as needed
+        Destroy(spawnedBullet, 10);
     }
+
 }

@@ -1,3 +1,4 @@
+// FireBulletOnActivate.cs
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,6 @@ public class FireBulletOnActivate : MonoBehaviour
 {
     public GameObject bullet;
     public Transform spawnPoint;
-    public float fireSpeed = 20;
     public AudioSource fireSound;
 
     private XRGrabInteractable grabbable;
@@ -36,15 +36,26 @@ public class FireBulletOnActivate : MonoBehaviour
         {
             fireSound.Play();
         }
-        GameObject spawnedBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
-        Rigidbody bulletRb = spawnedBullet.GetComponent<Rigidbody>();
 
-        float randomAngle = Random.Range(-5f, 5f);
-        Vector3 randomRotation = Quaternion.AngleAxis(randomAngle, spawnPoint.up) * spawnPoint.forward;
-        bulletRb.velocity = randomRotation * fireSpeed;
+        // Retrieve WeaponData from the associated weapon
+        Weapon weapon = GetComponent<Weapon>();
+        if (weapon != null && weapon.weaponData != null)
+        {
+            float fireSpeed = weapon.weaponData.fireSpeed;
 
-        bulletRb.constraints = RigidbodyConstraints.FreezeRotation;
-        Destroy(spawnedBullet, 10);
+            GameObject spawnedBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+            Rigidbody bulletRb = spawnedBullet.GetComponent<Rigidbody>();
+
+            float randomAngle = Random.Range(-5f, 5f);
+            Vector3 randomRotation = Quaternion.AngleAxis(randomAngle, spawnPoint.up) * spawnPoint.forward;
+            bulletRb.velocity = randomRotation * fireSpeed;
+
+            bulletRb.constraints = RigidbodyConstraints.FreezeRotation;
+            Destroy(spawnedBullet, 10);
+        }
+        else
+        {
+            Debug.LogWarning("Weapon or WeaponData not found on the object.");
+        }
     }
-
 }

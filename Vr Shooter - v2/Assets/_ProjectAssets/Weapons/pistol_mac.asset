@@ -15,3 +15,4 @@ MonoBehaviour:
   weaponName: mac
   damage: 10
   magSize: 10
+  fireSpeed: 5

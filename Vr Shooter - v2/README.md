@@ -47,5 +47,6 @@
 * [x] Added some kind of continous/burst shooting - same for all guns for now
 * [x] Added a little spread for bullets so that they don't all land in the same spot
 * [x] Moved the environement a little bit up on Y axis to deal with the clipping through floor teleportation (sometimes we teleported below the plane)
+* [x] Removed version 1 of the project
 * [ ] Failed fixing teleportation ray bend
-* [ ] Failed adding recoil ~5h-6h :(
+* [ ] Failed adding recoil ~5h-6h :((

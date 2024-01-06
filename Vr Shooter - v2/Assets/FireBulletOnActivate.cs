@@ -1,6 +1,4 @@
-// FireBulletOnActivate.cs
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -11,20 +9,48 @@ public class FireBulletOnActivate : MonoBehaviour
 
     private XRGrabInteractable grabbable;
 
+    public float fireRate = 0.5f;
+    private bool isFiring = false;
+
     // Start is called before the first frame update
     void Start()
     {
         grabbable = GetComponent<XRGrabInteractable>();
-        grabbable.activated.AddListener(FireBullet);
+        grabbable.activated.AddListener(StartFiring);
+        grabbable.deactivated.AddListener(StopFiring);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check for input, for example, when the 'F' key is pressed
-        if (Input.GetKeyDown(KeyCode.F) && grabbable.isSelected)
+        // Continuously fire bullets while 'F' key is held down
+        if (Input.GetKey(KeyCode.F) && grabbable.isSelected && !isFiring)
+        {
+            isFiring = true;
+            StartCoroutine(FireRoutine());
+        }
+        else if (!Input.GetKey(KeyCode.F) || !grabbable.isSelected)
+        {
+            StopFiring(null);
+        }
+    }
+
+    void StartFiring(ActivateEventArgs arg)
+    {
+        isFiring = true;
+    }
+
+    void StopFiring(DeactivateEventArgs arg)
+    {
+        isFiring = false;
+    }
+
+    IEnumerator FireRoutine()
+    {
+        while (isFiring)
         {
             FireBullet(null);
+            yield return new WaitForSeconds(1f / fireRate);
         }
     }
 
@@ -32,11 +58,9 @@ public class FireBulletOnActivate : MonoBehaviour
     {
         Debug.Log("Fired the bullet");
 
-        // Retrieve WeaponData from the associated weapon
         Weapon weapon = GetComponent<Weapon>();
         if (weapon != null && weapon.weaponData != null)
         {
-            // Play the fire sound from the associated WeaponData
             AudioClip fireSound = weapon.weaponData.fireSound;
             if (fireSound != null)
             {

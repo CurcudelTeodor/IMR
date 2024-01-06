@@ -38,3 +38,14 @@
 * [x] Shooting for pistol_mac si M4A1 with different bullet speeds! (pistol_mac G grab, F shoot)
 * [x] Scriptable Objects for pistol_mac and M4A1
 * [x] Teleportation with G
+
+### Week 12
+
+* [x] Sounds for guns incorporated in scriptable objects
+* [x] Fire speed configurable from scriptable objects
+* [x] Added realistic sounds for pistol_mac and M4A1
+* [x] Added some kind of continous/burst shooting - same for all guns for now
+* [x] Added a little spread for bullets so that they don't all land in the same spot
+* [x] Moved the environement a little bit up on Y axis to deal with the clipping through floor teleportation (sometimes we teleported below the plane)
+* [ ] Failed fixing teleportation ray bend
+* [ ] Failed adding recoil ~5h-6h :(

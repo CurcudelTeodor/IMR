@@ -8,9 +8,11 @@ public class FireBulletOnActivate : MonoBehaviour
     public Transform spawnPoint;
 
     private XRGrabInteractable grabbable;
+    private Transform originalParent;  
 
     public float fireRate = 0.5f;
     private bool isFiring = false;
+    private ShakeWrapper shakeWrapper; // Reference to ShakeWrapper
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,14 @@ public class FireBulletOnActivate : MonoBehaviour
         grabbable = GetComponent<XRGrabInteractable>();
         grabbable.activated.AddListener(StartFiring);
         grabbable.deactivated.AddListener(StopFiring);
+
+        // Store the original parent of the gun
+        originalParent = transform.parent;
+
+        // Ensure the gun is a child of ShakeWrapper
+        shakeWrapper = GetComponentInParent<ShakeWrapper>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -27,6 +36,13 @@ public class FireBulletOnActivate : MonoBehaviour
         if (Input.GetKey(KeyCode.F) && grabbable.isSelected && !isFiring)
         {
             isFiring = true;
+
+            // Set the original parent of the gun to ShakeWrapper
+            if (originalParent != null)
+            {
+                transform.parent = originalParent;
+            }
+
             StartCoroutine(FireRoutine());
         }
         else if (!Input.GetKey(KeyCode.F) || !grabbable.isSelected)
@@ -50,7 +66,20 @@ public class FireBulletOnActivate : MonoBehaviour
         while (isFiring)
         {
             FireBullet(null);
+
+            // Apply recoil using ShakeWrapper
+            if (shakeWrapper != null)
+            {
+                shakeWrapper.ApplyRecoil();
+            }
+
             yield return new WaitForSeconds(1f / fireRate);
+        }
+
+        // Set the parent back to the original parent after firing
+        if (transform.parent != originalParent)
+        {
+            transform.parent = originalParent;
         }
     }
 
@@ -86,6 +115,12 @@ public class FireBulletOnActivate : MonoBehaviour
         else
         {
             Debug.LogWarning("Weapon or WeaponData not found on the object.");
+        }
+
+         // If ShakeWrapper is the parent, set the parent back to the original parent
+        if (transform.parent != originalParent)
+        {
+            transform.parent = originalParent;
         }
     }
 }

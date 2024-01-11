@@ -8,6 +8,8 @@ TagManager:
   - Military target
   - LeftHand
   - RightHand
+  - Undefined
+  - Bullet
   layers:
   - Default
   - TransparentFX

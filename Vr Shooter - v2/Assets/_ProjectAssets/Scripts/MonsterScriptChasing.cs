@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class MonsterChasingScript : MonoBehaviour
@@ -16,6 +16,8 @@ public class MonsterChasingScript : MonoBehaviour
     {
         currentHealth = maxHealth;
         playerTransform = Camera.main.transform; // Assuming you want to move towards the main camera
+
+        // Set the initial animation state
     }
 
     // Update is called once per frame
@@ -24,13 +26,19 @@ public class MonsterChasingScript : MonoBehaviour
         if (playerTransform != null)
         {
             // Move towards the player
-            animator.SetTrigger("Run Forward W Root");
+            animator.SetTrigger("Run Forward"); // daca scoatem asta apare si animatia de hit, altfel nu mereu
             // animator.SetTrigger("Attack 01");
+
+            // Look at the player
+            transform.LookAt(playerTransform);
+
+            // Move towards the player
             transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
 
             // You can add additional behavior here if needed
         }
     }
+
 
     public void TakeDamage(int damage)
     {

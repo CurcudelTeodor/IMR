@@ -225,7 +225,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 726e329e1719c8f42949342e6a5b42e3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 38.899998
+      value: 53.60712
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 726e329e1719c8f42949342e6a5b42e3,
         type: 3}
@@ -450,8 +450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7987a4f9b79e754c951908fed65bc14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LeftController: {fileID: 0}
-  m_RightController: {fileID: 0}
+  m_LeftController: {fileID: 1498572149}
+  m_RightController: {fileID: 904617626}
   m_LeftControllerOculusPackage: {fileID: 0}
   m_RightControllerOculusPackage: {fileID: 0}
 --- !u!4 &67518917
@@ -1787,7 +1787,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6bea03a7115c5d748b18a7573d0d4d2b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 38.98988
+      value: 53.697002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6bea03a7115c5d748b18a7573d0d4d2b,
         type: 3}
@@ -1926,6 +1926,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 306829836}
+    - targetCorrespondingSourceObject: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 306829838}
     - targetCorrespondingSourceObject: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
         type: 3}
       insertIndex: -1
@@ -2137,6 +2141,96 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &306829838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306829833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4253f32900bcc4d499d675566142ded0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 1572288182}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 4294967295
+  m_AttachTransform: {fileID: 0}
+  m_KeepSelectedTargetValid: 1
+  m_DisableVisualsWhenBlockedInGroup: 1
+  m_StartingSelectedInteractable: {fileID: 0}
+  m_StartingTargetFilter: {fileID: 0}
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectActionTrigger: 1
+  m_HideControllerOnSelect: 0
+  m_AllowHoveredActivate: 0
+  m_TargetPriorityMode: 0
+  m_PlayAudioClipOnSelectEntered: 0
+  m_AudioClipForOnSelectEntered: {fileID: 0}
+  m_PlayAudioClipOnSelectExited: 0
+  m_AudioClipForOnSelectExited: {fileID: 0}
+  m_PlayAudioClipOnSelectCanceled: 0
+  m_AudioClipForOnSelectCanceled: {fileID: 0}
+  m_PlayAudioClipOnHoverEntered: 0
+  m_AudioClipForOnHoverEntered: {fileID: 0}
+  m_PlayAudioClipOnHoverExited: 0
+  m_AudioClipForOnHoverExited: {fileID: 0}
+  m_PlayAudioClipOnHoverCanceled: 0
+  m_AudioClipForOnHoverCanceled: {fileID: 0}
+  m_AllowHoverAudioWhileSelecting: 1
+  m_PlayHapticsOnSelectEntered: 0
+  m_HapticSelectEnterIntensity: 0
+  m_HapticSelectEnterDuration: 0
+  m_PlayHapticsOnSelectExited: 0
+  m_HapticSelectExitIntensity: 0
+  m_HapticSelectExitDuration: 0
+  m_PlayHapticsOnSelectCanceled: 0
+  m_HapticSelectCancelIntensity: 0
+  m_HapticSelectCancelDuration: 0
+  m_PlayHapticsOnHoverEntered: 0
+  m_HapticHoverEnterIntensity: 0
+  m_HapticHoverEnterDuration: 0
+  m_PlayHapticsOnHoverExited: 0
+  m_HapticHoverExitIntensity: 0
+  m_HapticHoverExitDuration: 0
+  m_PlayHapticsOnHoverCanceled: 0
+  m_HapticHoverCancelIntensity: 0
+  m_HapticHoverCancelDuration: 0
+  m_AllowHoverHapticsWhileSelecting: 1
+  m_ImproveAccuracyWithSphereCollider: 0
+  m_PhysicsLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_PhysicsTriggerInteraction: 1
 --- !u!4 &314692671 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4764293196696219720, guid: ad36c3d044d312e44a986a07f2c7f0b2,
@@ -3281,7 +3375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1572288182}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -4677,11 +4771,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012382903352, guid: a2185de06c434b84e8a36835c77d3ca4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -54.349995
+      value: -20.409996
       objectReference: {fileID: 0}
     - target: {fileID: 4000012382903352, guid: a2185de06c434b84e8a36835c77d3ca4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 47.109997
+      value: 62.949997
       objectReference: {fileID: 0}
     - target: {fileID: 4000012382903352, guid: a2185de06c434b84e8a36835c77d3ca4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5218,7 +5312,7 @@ Transform:
   m_GameObject: {fileID: 652420692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1176, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5334,7 +5428,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8b36fb41929fc22429f0083d817b8040,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39.18288
+      value: 53.890003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8b36fb41929fc22429f0083d817b8040,
         type: 3}
@@ -5413,7 +5507,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ffb3f5f9531da764c906b0baf3285c62,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39.022877
+      value: 53.73
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffb3f5f9531da764c906b0baf3285c62,
         type: 3}
@@ -7157,7 +7251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1572288182}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -7910,7 +8004,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 56fb9288b3ad3ae46a8caa229e01ab75,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0362089
+      value: 11.38
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56fb9288b3ad3ae46a8caa229e01ab75,
         type: 3}
@@ -8647,17 +8741,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 84c34c46f1db91e4db0f1e224fb56ba6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.135086
+      value: 3.44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 84c34c46f1db91e4db0f1e224fb56ba6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.7137911
+      value: 9.53
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 84c34c46f1db91e4db0f1e224fb56ba6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.27
+      value: 33.78
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 84c34c46f1db91e4db0f1e224fb56ba6,
         type: 3}
@@ -9156,11 +9250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013667457920, guid: a6d0754d440e3664fb2b639b2a7d08ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -54.35
+      value: -20.41
       objectReference: {fileID: 0}
     - target: {fileID: 4000013667457920, guid: a6d0754d440e3664fb2b639b2a7d08ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.559994
+      value: 62.399994
       objectReference: {fileID: 0}
     - target: {fileID: 4000013667457920, guid: a6d0754d440e3664fb2b639b2a7d08ca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9746,7 +9840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1572288182}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -11265,7 +11359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4253f32900bcc4d499d675566142ded0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1572288182}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -11522,7 +11616,7 @@ PrefabInstance:
     - target: {fileID: 6239359517610320279, guid: 67f716418f7ba2146a845739c7782755,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39.022877
+      value: 53.73
       objectReference: {fileID: 0}
     - target: {fileID: 6239359517610320279, guid: 67f716418f7ba2146a845739c7782755,
         type: 3}
@@ -12683,7 +12777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1572288182}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -13201,11 +13295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011900451128, guid: e3b873ff8cca896478e01643d95b4bba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -52.31
+      value: -18.37
       objectReference: {fileID: 0}
     - target: {fileID: 4000011900451128, guid: e3b873ff8cca896478e01643d95b4bba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 44.37
+      value: 60.21
       objectReference: {fileID: 0}
     - target: {fileID: 4000011900451128, guid: e3b873ff8cca896478e01643d95b4bba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14090,7 +14184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1572288182}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -17107,12 +17201,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 60d91f925d8c1e442bb6596dfb94ffff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -47.51
+      value: -15.23
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60d91f925d8c1e442bb6596dfb94ffff,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45.1
+      value: 59.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 60d91f925d8c1e442bb6596dfb94ffff,
         type: 3}
@@ -18034,7 +18128,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a957639d15248134a9be03d5ae4fed7f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39.202877
+      value: 53.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a957639d15248134a9be03d5ae4fed7f,
         type: 3}
@@ -19321,7 +19415,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4df3ce82db8e66645afd54ab1d5b0262,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39.022877
+      value: 53.73
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4df3ce82db8e66645afd54ab1d5b0262,
         type: 3}
@@ -19445,7 +19539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1572288182}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -19916,7 +20010,7 @@ Transform:
   m_GameObject: {fileID: 2113917989}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5579734, y: 1.6635653, z: 2.3133817}
+  m_LocalPosition: {x: -2.5579734, y: 1.65, z: 2.3133817}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19975,12 +20069,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 2113917995}
-  m_MoveSpeed: 1
+  m_MoveSpeed: 2
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
-  m_GravityApplicationMode: 0
-  m_ForwardSource: {fileID: 0}
+  m_GravityApplicationMode: 1
+  m_ForwardSource: {fileID: 1510988935}
   m_LeftHandMoveAction:
     m_UseReference: 1
     m_Action:
@@ -19995,7 +20089,7 @@ MonoBehaviour:
     m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_RightHandMoveAction:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Right Hand Move
       m_Type: 0
@@ -20020,7 +20114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Timeout: 10
-  m_XROrigin: {fileID: 0}
+  m_XROrigin: {fileID: 2113917991}
 --- !u!114 &2113917996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20034,7 +20128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LocomotionProvider: {fileID: 2113917994}
-  m_MinHeight: 0
+  m_MinHeight: 2
   m_MaxHeight: Infinity
 --- !u!143 &2113917997
 CharacterController:
@@ -20056,7 +20150,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -20069,7 +20163,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113917989}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
   m_Name: 

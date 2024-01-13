@@ -36,12 +36,12 @@ public class FireBulletOnActivate : MonoBehaviour
         if (Input.GetKey(KeyCode.F) && grabbable.isSelected && !isFiring)
         {
             isFiring = true;
-
+/*
             // Set the original parent of the gun to ShakeWrapper
             if (originalParent != null)
             {
                 transform.parent = originalParent;
-            }
+            }*/
 
             StartCoroutine(FireRoutine());
         }
@@ -77,10 +77,10 @@ public class FireBulletOnActivate : MonoBehaviour
         }
 
         // Set the parent back to the original parent after firing
-        if (transform.parent != originalParent)
+        /*if (transform.parent != originalParent)
         {
             transform.parent = originalParent;
-        }
+        }*/
     }
 
     public void FireBullet(ActivateEventArgs arg)
@@ -117,11 +117,11 @@ public class FireBulletOnActivate : MonoBehaviour
             Debug.LogWarning("Weapon or WeaponData not found on the object.");
         }
 
-         // If ShakeWrapper is the parent, set the parent back to the original parent
+/*         // If ShakeWrapper is the parent, set the parent back to the original parent
         if (transform.parent != originalParent)
         {
             transform.parent = originalParent;
-        }
+        }*/
     }
 }
 

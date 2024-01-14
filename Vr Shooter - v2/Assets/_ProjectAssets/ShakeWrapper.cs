@@ -14,7 +14,7 @@ public class ShakeWrapper : MonoBehaviour
 
     IEnumerator RecoilRoutine()
     {
-        Debug.Log("Am AJUNS AICI");
+        //Debug.Log("Am AJUNS AICI");
 
         if (playerCamera == null)
         {
@@ -26,11 +26,11 @@ public class ShakeWrapper : MonoBehaviour
         Vector3 originalPosition = transform.position;
         Vector3 recoilPosition = originalPosition - playerCamera.transform.forward * recoilDistance;
 
-        Debug.Log("orginal below");
+        /*Debug.Log("orginal below");
         Debug.Log(originalPosition);
 
         Debug.Log("recoil below");
-        Debug.Log(recoilPosition);
+        Debug.Log(recoilPosition);*/
 
         float elapsedTime = 0f;
         float duration = 0.2f;
@@ -39,7 +39,7 @@ public class ShakeWrapper : MonoBehaviour
         {
             transform.position = Vector3.Lerp(originalPosition, recoilPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
-            Debug.Log("Current Position: " + transform.position);
+            //Debug.Log("Current Position: " + transform.position);
             yield return null;
         }
 

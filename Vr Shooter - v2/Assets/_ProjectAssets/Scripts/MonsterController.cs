@@ -33,6 +33,7 @@ public class MonsterController : MonoBehaviour
         {
             Debug.Log("Banana");
             animator.SetBool("isIdle", true);
+            animator.ResetTrigger("Run Forward");
         }
     }
 }

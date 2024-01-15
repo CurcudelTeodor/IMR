@@ -9,8 +9,11 @@ public class MonsterController : MonoBehaviour
     public Animator animator;
     private NavMeshAgent navMeshAgent;
 
+    public HealthBar healthBar;
+
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth = 0;
+    //private int currentHealth;
 
     void Start()
     {
@@ -22,6 +25,7 @@ public class MonsterController : MonoBehaviour
         }
 
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -46,6 +50,7 @@ public class MonsterController : MonoBehaviour
     {   
         currentHealth -= damage;
 
+        healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
             Die();

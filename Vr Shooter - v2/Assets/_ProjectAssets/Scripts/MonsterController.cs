@@ -60,8 +60,8 @@ public class MonsterController : MonoBehaviour
         string attackTrigger = "Attack 0" + randomAttack.ToString();
         animator.SetTrigger(attackTrigger);
 
+        yield return new WaitForSeconds((float)0.8);
         playerController.TakeDamage(10);
-        yield return new WaitForSeconds(1);
 
         isAttacking = false;
     }

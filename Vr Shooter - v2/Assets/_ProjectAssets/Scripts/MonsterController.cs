@@ -4,16 +4,16 @@ using UnityEngine.AI;
 
 public class MonsterController : MonoBehaviour
 {
-
-    public Transform player; // Reference to the player (Main Camera in this case)
+    public Transform player;
     public Animator animator;
     private NavMeshAgent navMeshAgent;
-
+    private PlayerController playerController;
     public HealthBar healthBar;
+    public Camera playerCamera;
 
     public int maxHealth = 100;
-    public int currentHealth = 0;
-    //private int currentHealth;
+    private int currentHealth;
+    private bool isAttacking = false;
 
     void Start()
     {
@@ -26,38 +26,61 @@ public class MonsterController : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        playerController = playerCamera.GetComponent<PlayerController>();
     }
 
     void Update()
     {
         animator.SetBool("isIdle", false);
-        animator.SetTrigger("Run Forward"); // daca scoatem asta apare si animatia de hit, altfel nu mereu
+        animator.SetTrigger("Run Forward");
         navMeshAgent.SetDestination(player.position);
 
-        // Project both positions onto the same plane (ignore the Y component)
         Vector3 monsterPos = new Vector3(transform.position.x, 0f, transform.position.z);
         Vector3 playerPos = new Vector3(player.position.x, 0f, player.position.z);
 
-
         if (Vector3.Distance(monsterPos, playerPos) <= navMeshAgent.stoppingDistance)
-        {   
+        {
             animator.SetBool("isIdle", true);
+
+            if (!isAttacking)
+            {
+                Debug.Log("here");
+                isAttacking = true;
+                StartCoroutine(AttackPlayer());
+            }
+
             animator.ResetTrigger("Run Forward");
         }
     }
 
+    IEnumerator AttackPlayer()
+    {
+        animator.SetTrigger("Attack 01");
+        playerController.TakeDamage(10);
+        yield return new WaitForSeconds(1);
+
+        isAttacking = false;
+    }
+
     public void TakeDamage(int damage)
-    {   
-        currentHealth -= damage;
+    {
+        if (damage >= currentHealth)
+        {
+            currentHealth = 0;
+        }
+        else
+        {
+            currentHealth -= damage;
+        }
 
         healthBar.SetHealth(currentHealth);
+
         if (currentHealth <= 0)
         {
             Die();
         }
         else
         {
-            // Play Take Damage animation or perform other actions
             animator.SetTrigger("Take Damage");
             Debug.Log("Monster took damage. Current health: " + currentHealth);
         }
@@ -73,22 +96,6 @@ public class MonsterController : MonoBehaviour
     IEnumerator PauseAndDestroy(float duration)
     {
         yield return new WaitForSeconds(duration);
-
-        // This will be executed after waiting for the specified duration
         Destroy(gameObject);
     }
-
-    // if we don't want to use the Bullet script attached to the Bullet Object
-    /*void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Trigger entered!");
-        if (other.CompareTag("Bullet"))
-        {
-            Debug.Log("Bullet hit!");
-            int damage = 10;
-            TakeDamage(damage);
-            Debug.Log("Current health: " + currentHealth);
-            Destroy(other.gameObject);
-        }
-    }*/
 }

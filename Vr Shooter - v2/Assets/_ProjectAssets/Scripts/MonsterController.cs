@@ -55,7 +55,11 @@ public class MonsterController : MonoBehaviour
 
     IEnumerator AttackPlayer()
     {
-        animator.SetTrigger("Attack 01");
+        int randomAttack = Random.Range(1, 3); // randomly choose 1 or 2
+
+        string attackTrigger = "Attack 0" + randomAttack.ToString();
+        animator.SetTrigger(attackTrigger);
+
         playerController.TakeDamage(10);
         yield return new WaitForSeconds(1);
 

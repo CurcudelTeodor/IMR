@@ -68,8 +68,10 @@ public class MonsterController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        playerController.AddScore(damage);
+
         if (damage >= currentHealth)
-        {
+        {   
             currentHealth = 0;
         }
         else
@@ -81,6 +83,7 @@ public class MonsterController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            playerController.AddScore(50);
             Die();
         }
         else
@@ -101,5 +104,10 @@ public class MonsterController : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         Destroy(gameObject);
+    }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
     }
 }

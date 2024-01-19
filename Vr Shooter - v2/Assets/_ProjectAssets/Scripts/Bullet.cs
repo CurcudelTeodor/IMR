@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
         MonsterController monster = other.GetComponent<MonsterController>();
 
         // If it does, apply damage to the monster
-        if (monster != null)
+        if (monster != null && monster.GetCurrentHealth() > 0)
         {
             monster.TakeDamage(damage);
         }

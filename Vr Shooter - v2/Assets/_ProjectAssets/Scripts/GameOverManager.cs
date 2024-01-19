@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -8,12 +9,15 @@ public class GameOverManager : MonoBehaviour
     public Camera playerCamera;
 
     public GameObject gameOverCanvas;
+    public TextMeshProUGUI scoreText; // Reference to the Text component displaying the score
+
 
     void Start()
     {
         // Disable the game over canvas initially
         gameOverCanvas.SetActive(false);
         playerController = playerCamera.GetComponent<PlayerController>();
+        //Score = 
 
     }
 
@@ -22,8 +26,13 @@ public class GameOverManager : MonoBehaviour
         // Check if the player's health is 0
         if (playerController.currentHealth <= 0)
         {
+            int score = playerController.GetScore();
+
             // Show the game over canvas
             gameOverCanvas.SetActive(true);
+
+            // Display the score
+            scoreText.text = "Score = " + score;
 
             // Freeze the game by setting the time scale to 0
             Time.timeScale = 0f;

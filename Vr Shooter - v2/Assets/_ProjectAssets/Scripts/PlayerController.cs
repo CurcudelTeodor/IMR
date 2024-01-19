@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     public int maxHealth = 100;
     public int currentHealth;
+    private int score = 0;
 
     public HealthBar healthBar;
 
@@ -31,5 +32,15 @@ public class PlayerController : MonoBehaviour
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
+    }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public void AddScore(int points)
+    {
+        score += points;
     }
 }

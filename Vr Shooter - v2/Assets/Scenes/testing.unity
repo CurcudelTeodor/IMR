@@ -10220,8 +10220,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.3210769, y: 1.1326327, z: 1}
+  m_Center: {x: 0.006215811, y: 0.58196926, z: 0}
 --- !u!95 &1194506200 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95206688057043068, guid: 128a80094e00bf34fa2555766a7eea0e,

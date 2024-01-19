@@ -15,6 +15,11 @@ public class MonsterController : MonoBehaviour
     private int currentHealth;
     private bool isAttacking = false;
 
+    public float shakeDuration = 0.5f;
+    public float shakeMagnitude = 0.2f;
+
+    private Vector3 originalCameraPosition;
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -27,6 +32,8 @@ public class MonsterController : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         playerController = playerCamera.GetComponent<PlayerController>();
+
+       
     }
 
     void Update()
@@ -54,16 +61,44 @@ public class MonsterController : MonoBehaviour
     }
 
     IEnumerator AttackPlayer()
-    {
+    {   
+        // Store the original position of the camera
+        originalCameraPosition = playerCamera.transform.localPosition;
+
         int randomAttack = Random.Range(1, 3); // randomly choose 1 or 2
 
         string attackTrigger = "Attack 0" + randomAttack.ToString();
         animator.SetTrigger(attackTrigger);
 
+        // Add camera shake when attacking
+        StartCoroutine(CameraShake(shakeDuration, shakeMagnitude));
+
         yield return new WaitForSeconds((float)0.8);
         playerController.TakeDamage(10);
 
         isAttacking = false;
+    }
+
+    IEnumerator CameraShake(float duration, float magnitude)
+    {
+        Debug.Log("Im shaking the camera");
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            // Apply the shake offset to the camera's position relative to its current position
+            playerCamera.transform.localPosition += new Vector3(x, y, 0);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        // Reset the camera position to the original position after the shake
+        playerCamera.transform.localPosition = originalCameraPosition;
     }
 
     public void TakeDamage(int damage)

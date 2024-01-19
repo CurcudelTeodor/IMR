@@ -56,14 +56,22 @@ public class GameOverManager : MonoBehaviour
     // Called by the "Play Again" button
     public void PlayAgain()
     {
-        // Reload the current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Reload the current scene asynchronously
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex).completed += OnSceneLoadComplete;
+    }
+
+    private void OnSceneLoadComplete(AsyncOperation asyncOperation)
+    {   
+        // Reset the time scale when the scene is loaded
+        Time.timeScale = 1f;
     }
 
     // Called by the "Exit" button
     public void ExitGame()
     {
         // Quit the application
-        Application.Quit();
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 }

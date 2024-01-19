@@ -9386,6 +9386,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6598815579406187026, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
+      propertyPath: m_HandActionAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: da2b439d1a2de5c46a4f428f8cf4fe19,
+        type: 3}
+    - target: {fileID: 6598815579406187026, guid: 9f5a24a380916d14db9775daab4fe333,
+        type: 3}
+      propertyPath: m_ControllerActionAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: da2b439d1a2de5c46a4f428f8cf4fe19,
+        type: 3}
+    - target: {fileID: 6598815579406187026, guid: 9f5a24a380916d14db9775daab4fe333,
+        type: 3}
+      propertyPath: m_DeviceSimulatorActionAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: da2b439d1a2de5c46a4f428f8cf4fe19,
+        type: 3}
+    - target: {fileID: 6598815579406187026, guid: 9f5a24a380916d14db9775daab4fe333,
+        type: 3}
       propertyPath: m_KeyboardBodyTranslateMultiplier
       value: 15
       objectReference: {fileID: 0}
@@ -11778,7 +11796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1292505623}
   - component: {fileID: 1292505622}
-  - component: {fileID: 1292505621}
+  - component: {fileID: 1292505624}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -11786,26 +11804,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1292505621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292505620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &1292505622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11836,6 +11834,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1292505624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292505620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab68ce6587aab0146b8dabefbd806791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_ClickSpeed: 0.3
+  m_MoveDeadzone: 0.6
+  m_RepeatDelay: 0.5
+  m_RepeatRate: 0.1
+  m_TrackedDeviceDragThresholdMultiplier: 1.4
+  m_TrackedScrollDeltaMultiplier: 5
+  m_ActiveInputMode: 0
+  m_MaxTrackedDeviceRaycastDistance: 1000
+  m_EnableXRInput: 1
+  m_EnableMouseInput: 1
+  m_EnableTouchInput: 1
+  m_PointAction: {fileID: 0}
+  m_LeftClickAction: {fileID: -6395602842196007441, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_NavigateAction: {fileID: 0}
+  m_SubmitAction: {fileID: 0}
+  m_CancelAction: {fileID: 0}
+  m_EnableBuiltinActionsAsFallback: 1
+  m_EnableGamepadInput: 1
+  m_EnableJoystickInput: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
 --- !u!1001 &1293983555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16848,7 +16886,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.9583559, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -21970,7 +22008,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.11756911, g: 0.990566, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}

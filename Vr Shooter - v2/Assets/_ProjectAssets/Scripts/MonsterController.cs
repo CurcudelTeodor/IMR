@@ -1,3 +1,4 @@
+using EZCameraShake;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -71,7 +72,8 @@ public class MonsterController : MonoBehaviour
         animator.SetTrigger(attackTrigger);
 
         // Add camera shake when attacking
-        StartCoroutine(CameraShake(shakeDuration, shakeMagnitude));
+        //StartCoroutine(CameraShake(shakeDuration, shakeMagnitude));
+        CameraShaker.Instance.ShakeOnce(3f, 1f, 0.1f, 1f);
 
         yield return new WaitForSeconds((float)0.8);
         playerController.TakeDamage(10);

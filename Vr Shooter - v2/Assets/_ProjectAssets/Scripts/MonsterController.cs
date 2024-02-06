@@ -22,6 +22,13 @@ public class MonsterController : MonoBehaviour
 
     private Vector3 originalCameraPosition;
 
+    // Reference to the TakeDamageScript
+    public TakeDamageScript takeDamageScript;
+
+    public float intensity = 0;
+    public PostProcessVolume _volume;
+    Vignette _vignette;
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -35,11 +42,47 @@ public class MonsterController : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         playerController = playerCamera.GetComponent<PlayerController>();
 
-       
+        //vignette
+        //_volume = GetComponent<PostProcessVolume>();
+        _volume.profile.TryGetSettings<Vignette>(out _vignette);
+        if (!_vignette)
+        {
+            print("Error: Vignette not found");
+        }
+        else
+        {
+            _vignette.enabled.Override(false);
+        }
+
     }
+
+    public IEnumerator TakeDamageEffect()
+    {
+        Debug.Log("aaaaaaaaa");
+        intensity = 0.4f;
+
+        _vignette.enabled.Override(true);
+        _vignette.intensity.Override(0.4f);
+
+        yield return new WaitForSeconds(0.1f);
+
+        while (intensity > 0)
+        {
+            intensity -= 0.01f;
+            if (intensity < 0) intensity = 0;
+
+            _vignette.intensity.Override(intensity);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+        _vignette.enabled.Override(false);
+    }
+
 
     void Update()
     {
+        //if (Input.GetMouseButtonDown(0))
+            //StartCoroutine(TakeDamageEffect());
         animator.SetBool("isIdle", false);
         animator.SetTrigger("Run Forward");
         navMeshAgent.SetDestination(player.position);
@@ -75,6 +118,14 @@ public class MonsterController : MonoBehaviour
         // Add camera shake when attacking
         //StartCoroutine(CameraShake(shakeDuration, shakeMagnitude));
         CameraShaker.Instance.ShakeOnce(3f, 1f, 0.1f, 1f);
+        StartCoroutine(TakeDamageEffect());
+
+        /*
+        if (takeDamageScript != null)
+        {
+            Debug.Log("Triggering vignette effect");
+            yield return StartCoroutine(takeDamageScript.TakeDamageEffect());
+        }*/
 
         yield return new WaitForSeconds((float)0.8);
         playerController.TakeDamage(10);

@@ -8,7 +8,7 @@ public class TakeDamageScript : MonoBehaviour
     PostProcessVolume _volume;
     Vignette _vignette;
 
-    void Start()
+    public void Start()
     {
         _volume = GetComponent<PostProcessVolume>();
         _volume.profile.TryGetSettings<Vignette>(out _vignette);
@@ -24,12 +24,12 @@ public class TakeDamageScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            StartCoroutine(TakeDamageEffect());
+        
     }
 
-    private IEnumerator TakeDamageEffect()
+    public IEnumerator TakeDamageEffect()
     {
+        Debug.Log("aaaaaaaaa");
         intensity = 0.4f;
 
         _vignette.enabled.Override(true);

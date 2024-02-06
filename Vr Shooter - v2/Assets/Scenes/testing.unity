@@ -7025,6 +7025,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2061395618}
   m_LocalEulerAnglesHint: {x: 3.626, y: 0, z: 0}
+--- !u!1 &865756308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1773756151959418312, guid: b96e0f5c0cc869046b1b30c3f13a7fa8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1747478979473753290}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &865913120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8402,8 +8408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63d91261af7fc845a97bc842d604562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1773756151959418312, guid: b96e0f5c0cc869046b1b30c3f13a7fa8,
-    type: 3}
+  enemyPrefab: {fileID: 865756308}
   spawnPoints:
   - {fileID: 589275742}
   - {fileID: 1817206023}
@@ -9527,6 +9532,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intensity: 0
+--- !u!1 &1094682212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094682214}
+  - component: {fileID: 1094682213}
+  m_Layer: 0
+  m_Name: TakeDamageScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1094682213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094682212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e136c84ac0a6d44b61c3f154f5dd4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: 0
+--- !u!4 &1094682214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094682212}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.9794085, y: 1.9455801, z: 3.9949114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1104062805
 GameObject:
   m_ObjectHideFlags: 0
@@ -21839,6 +21889,11 @@ PrefabInstance:
       objectReference: {fileID: 1510988935}
     - target: {fileID: 1618874499971959489, guid: b96e0f5c0cc869046b1b30c3f13a7fa8,
         type: 3}
+      propertyPath: _volume
+      value: 
+      objectReference: {fileID: 1088566870}
+    - target: {fileID: 1618874499971959489, guid: b96e0f5c0cc869046b1b30c3f13a7fa8,
+        type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1510988938}
@@ -21847,6 +21902,11 @@ PrefabInstance:
       propertyPath: damageIndicator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1618874499971959489, guid: b96e0f5c0cc869046b1b30c3f13a7fa8,
+        type: 3}
+      propertyPath: takeDamageScript
+      value: 
+      objectReference: {fileID: 1094682213}
     - target: {fileID: 1768361487026760204, guid: b96e0f5c0cc869046b1b30c3f13a7fa8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21936,3 +21996,4 @@ SceneRoots:
   - {fileID: 1817206023}
   - {fileID: 589275742}
   - {fileID: 1088566871}
+  - {fileID: 1094682214}

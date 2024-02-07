@@ -13,7 +13,8 @@ public class MonsterController : MonoBehaviour
     public HealthBar healthBar;
     public Camera playerCamera;
 
-    public int maxHealth = 100;
+    public int maxHealth = 50;
+    public int monsterDamage;
     private int currentHealth;
     private bool isAttacking = false;
 
@@ -128,7 +129,7 @@ public class MonsterController : MonoBehaviour
         }*/
 
         yield return new WaitForSeconds((float)0.8);
-        playerController.TakeDamage(10);
+        playerController.TakeDamage(monsterDamage);
 
         isAttacking = false;
     }

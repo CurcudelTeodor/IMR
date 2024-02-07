@@ -21,5 +21,9 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    
+    public float GetFireRate()
+    {
+        return weaponData.fireRate;
+    }
+
 }

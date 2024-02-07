@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class FireBulletOnActivate : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObject bulletPrefab;
     public Transform spawnPoint;
 
     public XRGrabInteractable grabbable;
@@ -13,6 +13,8 @@ public class FireBulletOnActivate : MonoBehaviour
     public float fireRate = 0.5f;
     private bool isFiring = false;
     private ShakeWrapper shakeWrapper; // Reference to ShakeWrapper
+
+    private Weapon weapon; // Reference to Weapon component
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,9 @@ public class FireBulletOnActivate : MonoBehaviour
 
         // Ensure the gun is a child of ShakeWrapper
         shakeWrapper = GetComponentInParent<ShakeWrapper>();
+
+        // Get the Weapon component
+        weapon = GetComponent<Weapon>();
     }
 
 
@@ -73,6 +78,8 @@ public class FireBulletOnActivate : MonoBehaviour
                 shakeWrapper.ApplyRecoil();
             }
 
+            // Retrieve the fire rate from the Weapon component
+            float fireRate = weapon.GetFireRate();
             yield return new WaitForSeconds(1f / fireRate);
         }
 
@@ -101,8 +108,22 @@ public class FireBulletOnActivate : MonoBehaviour
             }
 
             float fireSpeed = weapon.weaponData.fireSpeed;
+            int damage = weapon.weaponData.damage;
 
-            GameObject spawnedBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+
+            GameObject spawnedBullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
+            Bullet bulletComponent = spawnedBullet.GetComponent<Bullet>(); //get the Bullet script component
+
+            // Apply the damage to the bullet component
+            if (bulletComponent != null)
+            {
+                bulletComponent.damage = damage;
+            }
+            else
+            {
+                Debug.LogWarning("Bullet component not found on the spawned bullet.");
+            }
+
             Rigidbody bulletRb = spawnedBullet.GetComponent<Rigidbody>();
 
             float randomAngle = Random.Range(-5f, 5f);

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9b44ceb4d12f4541bffa46d0233ce5d, type: 3}
-  m_Name: m4a1
+  m_Name: ak74
   m_EditorClassIdentifier: 
-  weaponName: m4a1
-  damage: 50
+  weaponName: AK-74
+  damage: 20
   magSize: 30
-  fireSpeed: 25
+  fireSpeed: 30
   fireRate: 0.5
-  fireSound: {fileID: 8300000, guid: 1b766da7cc2d648aa84e36cb5fe8abcb, type: 3}
+  fireSound: {fileID: 8300000, guid: 65201ddabb4144f6a8fb9480120b7656, type: 3}

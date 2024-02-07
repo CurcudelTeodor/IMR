@@ -158,7 +158,7 @@ public class MonsterController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         playerController.AddScore(damage);
-
+        Debug.Log("Monster took " + damage);
         if (damage >= currentHealth)
         {   
             currentHealth = 0;

@@ -9614,18 +9614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1094682213 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6130685773595806272, guid: 974ce58d5f930954194e2f2ccf22a138,
-    type: 3}
-  m_PrefabInstance: {fileID: 2139683955296824}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e136c84ac0a6d44b61c3f154f5dd4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1104062805
 GameObject:
   m_ObjectHideFlags: 0
@@ -21963,7 +21951,7 @@ MonoBehaviour:
   waveCanvas: {fileID: 1420272458}
   waveTextDuration: 1.5
   spawnpoints:
-  - {fileID: 1817206023}
+  - {fileID: 589275742}
 --- !u!4 &2130053316
 Transform:
   m_ObjectHideFlags: 0
@@ -22136,74 +22124,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2138219851}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2139683955296824
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7660683724080932615, guid: 974ce58d5f930954194e2f2ccf22a138,
-        type: 3}
-      propertyPath: m_Name
-      value: TakeDamageScript
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223180860972943517, guid: 974ce58d5f930954194e2f2ccf22a138,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.9794085
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223180860972943517, guid: 974ce58d5f930954194e2f2ccf22a138,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.9455801
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223180860972943517, guid: 974ce58d5f930954194e2f2ccf22a138,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.9949114
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223180860972943517, guid: 974ce58d5f930954194e2f2ccf22a138,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223180860972943517, guid: 974ce58d5f930954194e2f2ccf22a138,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223180860972943517, guid: 974ce58d5f930954194e2f2ccf22a138,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223180860972943517, guid: 974ce58d5f930954194e2f2ccf22a138,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223180860972943517, guid: 974ce58d5f930954194e2f2ccf22a138,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223180860972943517, guid: 974ce58d5f930954194e2f2ccf22a138,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223180860972943517, guid: 974ce58d5f930954194e2f2ccf22a138,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 974ce58d5f930954194e2f2ccf22a138, type: 3}
 --- !u!1001 &3262542619179600797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22230,7 +22150,7 @@ PrefabInstance:
     - target: {fileID: 1481192973181396558, guid: 43b4a7f758be3d94c8efa8c7acd0b31f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.26
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 1481192973181396558, guid: 43b4a7f758be3d94c8efa8c7acd0b31f,
         type: 3}
@@ -22301,7 +22221,7 @@ PrefabInstance:
         type: 3}
       propertyPath: takeDamageScript
       value: 
-      objectReference: {fileID: 1094682213}
+      objectReference: {fileID: 0}
     - target: {fileID: 6022724055329663497, guid: 43b4a7f758be3d94c8efa8c7acd0b31f,
         type: 3}
       propertyPath: cam
@@ -22472,7 +22392,7 @@ PrefabInstance:
         type: 3}
       propertyPath: takeDamageScript
       value: 
-      objectReference: {fileID: 1094682213}
+      objectReference: {fileID: 0}
     - target: {fileID: 4044584586718626911, guid: 41b9adf1553198f4cb974d99dc42c0dc,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -22518,5 +22438,4 @@ SceneRoots:
   - {fileID: 1817206023}
   - {fileID: 589275742}
   - {fileID: 3637538785094190386}
-  - {fileID: 2139683955296824}
   - {fileID: 2130053316}

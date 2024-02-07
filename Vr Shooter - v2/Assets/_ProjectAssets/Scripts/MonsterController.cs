@@ -24,7 +24,6 @@ public class MonsterController : MonoBehaviour
     private Vector3 originalCameraPosition;
 
     // Reference to the TakeDamageScript
-    public TakeDamageScript takeDamageScript;
 
     public float intensity = 0;
     public PostProcessVolume _volume;
@@ -59,7 +58,7 @@ public class MonsterController : MonoBehaviour
 
     public IEnumerator TakeDamageEffect()
     {
-        Debug.Log("aaaaaaaaa");
+        Debug.Log("im taking damage");
         intensity = 0.4f;
 
         _vignette.enabled.Override(true);

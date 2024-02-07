@@ -12,11 +12,9 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     private Transform[] spawnpoints;
 
-    private float timeBtwnSpawns;
-    private float timeBetweenEnemiesInWave;
     private int currentWaveIndex = 0;
-
     private bool stopSpawning = false;
+    private bool waveInProgress = false;
 
     private void Awake()
     {
@@ -30,11 +28,16 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
-        if (Time.time >= timeBtwnSpawns)
+        if (!waveInProgress && AllEnemiesDefeated())
         {
-            SpawnWave();
-            StartNextWave();
+            StartCoroutine(DelayBeforeNextWave());
         }
+    }
+
+    private IEnumerator DelayBeforeNextWave()
+    {
+        yield return new WaitForSeconds(currentWave.PauseTimeAfterThisWaveEnded);
+        StartNextWave();
     }
 
     private void StartNextWave()
@@ -42,9 +45,9 @@ public class WaveSpawner : MonoBehaviour
         if (currentWaveIndex < waves.Length)
         {
             currentWave = waves[currentWaveIndex];
-            timeBtwnSpawns = Time.time + currentWave.TimeBeforeThisWave;
-            timeBetweenEnemiesInWave = currentWave.TimeBetweenSpawnEnemiesInsideWave;
+            StartCoroutine(SpawnWaveEnemies());
             currentWaveIndex++;
+            waveInProgress = true;
         }
         else
         {
@@ -52,39 +55,41 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnWave()
-    {
-        StartCoroutine(SpawnWaveEnemies());
-    }
-
     private IEnumerator SpawnWaveEnemies()
     {
-        for (int i = 0; i < currentWave.NumberToSpawn; i++)
+        int enemiesToSpawn = currentWave.NumberToSpawn;
+        int enemiesSpawned = 0;
+
+        while (enemiesSpawned < enemiesToSpawn)
         {
             int randomEnemyIndex = Random.Range(0, currentWave.EnemiesInWave.Length);
             int randomSpawnPointIndex = Random.Range(0, spawnpoints.Length);
 
-            SpawnEnemy(currentWave.EnemiesInWave[randomEnemyIndex], spawnpoints[randomSpawnPointIndex]);
+            GameObject enemy = Instantiate(currentWave.EnemiesInWave[randomEnemyIndex], spawnpoints[randomSpawnPointIndex].position, Quaternion.identity);
 
-            yield return new WaitForSeconds(timeBetweenEnemiesInWave);
+            MonsterController monsterController = enemy.GetComponent<MonsterController>();
+            Billboard billboardScript = enemy.GetComponentInChildren<Billboard>();
+
+            if (monsterController != null)
+            {
+                monsterController.playerCamera = playerCamera;
+                billboardScript.cam = player;
+            }
+            else
+            {
+                Debug.LogError("MonsterController script not found on the spawned enemy.");
+            }
+
+            enemiesSpawned++;
+            yield return new WaitForSeconds(currentWave.TimeBetweenSpawnEnemiesInsideWave);
         }
+
+        waveInProgress = false;
     }
 
-    private void SpawnEnemy(GameObject enemyPrefab, Transform spawnPoint)
+    private bool AllEnemiesDefeated()
     {
-        GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-
-        MonsterController monsterController = enemy.GetComponent<MonsterController>();
-        Billboard billboardScript = enemy.GetComponentInChildren<Billboard>();
-
-        if (monsterController != null)
-        {
-            monsterController.playerCamera = playerCamera;
-            billboardScript.cam = player;
-        }
-        else
-        {
-            Debug.LogError("MonsterController script not found on the spawned enemy.");
-        }
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Animal");
+        return enemies.Length == 0;
     }
 }

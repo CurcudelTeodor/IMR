@@ -9,11 +9,11 @@ public class Wave : ScriptableObject
     public GameObject[] EnemiesInWave { get; private set; }
     
     [field: SerializeField]
-    public float TimeBeforeThisWave { get; private set; }
+    public float PauseTimeAfterThisWaveEnded { get; private set; }
     
     [field: SerializeField]
     public float TimeBetweenSpawnEnemiesInsideWave { get; private set; }
     
     [field: SerializeField]
-    public float NumberToSpawn { get; private set; }
+    public int NumberToSpawn { get; private set; }
 }

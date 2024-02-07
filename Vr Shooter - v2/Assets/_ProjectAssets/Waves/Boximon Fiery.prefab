@@ -699,9 +699,10 @@ MonoBehaviour:
   monsterDamage: 5
   shakeDuration: 0.5
   shakeMagnitude: 0.2
-  takeDamageScript: {fileID: 0}
+  takeDamageScript: {fileID: 6130685773595806272, guid: 974ce58d5f930954194e2f2ccf22a138,
+    type: 3}
   intensity: 0
-  _volume: {fileID: 0}
+  _volume: {fileID: 2263194785443070437, guid: 01dda0a74149aaa43bf7e8a08e8ebea8, type: 3}
 --- !u!1 &1484511399496663014
 GameObject:
   m_ObjectHideFlags: 0

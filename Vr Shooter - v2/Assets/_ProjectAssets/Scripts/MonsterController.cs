@@ -2,7 +2,8 @@ using EZCameraShake;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal; // Import the Universal Render Pipeline namespace
 
 public class MonsterController : MonoBehaviour
 {
@@ -23,13 +24,11 @@ public class MonsterController : MonoBehaviour
 
     private Vector3 originalCameraPosition;
 
-    // Reference to the TakeDamageScript
-
     public float intensity = 0;
-    public PostProcessVolume _volume;
-
+    public Volume volume; // Reference to the Volume component
+    
+    private float weight;
     public ParticleSystem deathParticles;
-    Vignette _vignette;
 
     void Start()
     {
@@ -44,47 +43,34 @@ public class MonsterController : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         playerController = playerCamera.GetComponent<PlayerController>();
 
-        //vignette
-        //_volume = GetComponent<PostProcessVolume>();
-        _volume.profile.TryGetSettings<Vignette>(out _vignette);
-        if (!_vignette)
-        {
-            print("Error: Vignette not found");
-        }
-        else
-        {
-            _vignette.enabled.Override(false);
-        }
+        // Get the Vignette volume component
+        
 
+        weight = volume.weight;
     }
 
     public IEnumerator TakeDamageEffect()
     {
-        Debug.Log("im taking damage");
-        intensity = 0.4f;
-
-        _vignette.enabled.Override(true);
-        _vignette.intensity.Override(0.4f);
+        Debug.Log("Taking damage...");
+        weight = 1f;
 
         yield return new WaitForSeconds(0.1f);
 
-        while (intensity > 0)
+        while (weight > 0)
         {
-            intensity -= 0.01f;
-            if (intensity < 0) intensity = 0;
+            weight -= 0.01f;
+            if (weight < 0) weight = 0;
 
-            _vignette.intensity.Override(intensity);
+            volume.weight = weight;
 
             yield return new WaitForSeconds(0.1f);
         }
-        _vignette.enabled.Override(false);
     }
-
 
     void Update()
     {
         //if (Input.GetMouseButtonDown(0))
-            //StartCoroutine(TakeDamageEffect());
+           // StartCoroutine(TakeDamageEffect());
         animator.SetBool("isIdle", false);
         animator.SetTrigger("Run Forward");
         navMeshAgent.SetDestination(player.position);
@@ -98,7 +84,7 @@ public class MonsterController : MonoBehaviour
 
             if (!isAttacking)
             {
-                Debug.Log("here");
+                Debug.Log("Attacking...");
                 isAttacking = true;
                 StartCoroutine(AttackPlayer());
             }
@@ -108,7 +94,7 @@ public class MonsterController : MonoBehaviour
     }
 
     IEnumerator AttackPlayer()
-    {   
+    {
         // Store the original position of the camera
         originalCameraPosition = playerCamera.transform.localPosition;
 
@@ -162,7 +148,7 @@ public class MonsterController : MonoBehaviour
         playerController.AddScore(damage);
         Debug.Log("Monster took " + damage);
         if (damage >= currentHealth)
-        {   
+        {
             currentHealth = 0;
         }
         else

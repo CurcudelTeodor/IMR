@@ -27,6 +27,8 @@ public class MonsterController : MonoBehaviour
 
     public float intensity = 0;
     public PostProcessVolume _volume;
+
+    public ParticleSystem deathParticles;
     Vignette _vignette;
 
     void Start()
@@ -186,12 +188,14 @@ public class MonsterController : MonoBehaviour
     {
         animator.SetTrigger("Die");
         Debug.Log("Monster died");
-        StartCoroutine(PauseAndDestroy(2f));
+        StartCoroutine(PauseAndDestroy(1.5f));
     }
 
     IEnumerator PauseAndDestroy(float duration)
     {
         yield return new WaitForSeconds(duration);
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
     }
 

@@ -701,6 +701,8 @@ MonoBehaviour:
   shakeMagnitude: 0.2
   intensity: 0
   _volume: {fileID: 2263194785443070437, guid: 01dda0a74149aaa43bf7e8a08e8ebea8, type: 3}
+  deathParticles: {fileID: 5841099564728492057, guid: 23efc13d3eeb2874d945b6d2e5f8d4e3,
+    type: 3}
 --- !u!1 &1484511399496663014
 GameObject:
   m_ObjectHideFlags: 0

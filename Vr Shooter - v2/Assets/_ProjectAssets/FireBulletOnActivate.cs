@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -14,7 +15,7 @@ public class FireBulletOnActivate : MonoBehaviour
     private ShakeWrapper shakeWrapper; // Reference to ShakeWrapper
 
     private Weapon weapon; // Reference to Weapon component
-
+    public Boolean spread;
     // Start is called before the first frame update
     void Start()
     {
@@ -109,28 +110,61 @@ public class FireBulletOnActivate : MonoBehaviour
             float fireSpeed = weapon.weaponData.fireSpeed;
             int damage = weapon.weaponData.damage;
 
-
-            GameObject spawnedBullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
-            Bullet bulletComponent = spawnedBullet.GetComponent<Bullet>(); //get the Bullet script component
-
-            // Apply the damage to the bullet component
-            if (bulletComponent != null)
+            if(spread)
             {
-                bulletComponent.damage = damage;
+                for (int i = 0; i < 5; i++)
+                {
+                    GameObject spawnedBullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
+                    Bullet bulletComponent = spawnedBullet.GetComponent<Bullet>(); //get the Bullet script component
+
+                    // Apply the damage to the bullet component
+                    if (bulletComponent != null)
+                    {
+                        bulletComponent.damage = damage;
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Bullet component not found on the spawned bullet.");
+                    }
+
+                    Rigidbody bulletRb = spawnedBullet.GetComponent<Rigidbody>();
+
+                    float randomAngle = UnityEngine.Random.Range(-5f, 5f);
+                    Vector3 randomRotation = Quaternion.AngleAxis(randomAngle, spawnPoint.up) * spawnPoint.forward;
+                    bulletRb.velocity = randomRotation * fireSpeed;
+
+                    bulletRb.constraints = RigidbodyConstraints.FreezeRotation;
+                    Destroy(spawnedBullet, 10);
+                }
+                    
             }
+
             else
             {
-                Debug.LogWarning("Bullet component not found on the spawned bullet.");
+                GameObject spawnedBullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
+                Bullet bulletComponent = spawnedBullet.GetComponent<Bullet>(); //get the Bullet script component
+
+                // Apply the damage to the bullet component
+                if (bulletComponent != null)
+                {
+                    bulletComponent.damage = damage;
+                }
+                else
+                {
+                    Debug.LogWarning("Bullet component not found on the spawned bullet.");
+                }
+
+                Rigidbody bulletRb = spawnedBullet.GetComponent<Rigidbody>();
+
+                float randomAngle = UnityEngine.Random.Range(-5f, 5f);
+                Vector3 randomRotation = Quaternion.AngleAxis(randomAngle, spawnPoint.up) * spawnPoint.forward;
+                bulletRb.velocity = randomRotation * fireSpeed;
+
+                bulletRb.constraints = RigidbodyConstraints.FreezeRotation;
+                Destroy(spawnedBullet, 10);
             }
+                
 
-            Rigidbody bulletRb = spawnedBullet.GetComponent<Rigidbody>();
-
-            float randomAngle = Random.Range(-5f, 5f);
-            Vector3 randomRotation = Quaternion.AngleAxis(randomAngle, spawnPoint.up) * spawnPoint.forward;
-            bulletRb.velocity = randomRotation * fireSpeed;
-
-            bulletRb.constraints = RigidbodyConstraints.FreezeRotation;
-            Destroy(spawnedBullet, 10);
         }
         else
         {

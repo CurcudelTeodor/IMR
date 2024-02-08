@@ -119,9 +119,14 @@ public class WaveSpawner : MonoBehaviour
         waveCanvas.enabled = false; // Hide the canvas after the specified duration
     }
 
-    private bool AllEnemiesDefeated()
+    public bool AllEnemiesDefeated()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Animal");
         return enemies.Length == 0;
+    }
+
+    public bool AllWavesCompleted()
+    {
+        return currentWaveIndex >= waves.Length && !waveInProgress;
     }
 }

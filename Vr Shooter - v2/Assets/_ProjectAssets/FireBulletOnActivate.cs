@@ -10,7 +10,6 @@ public class FireBulletOnActivate : MonoBehaviour
     public XRGrabInteractable grabbable;
     private Transform originalParent;  
 
-    public float fireRate = 0.5f;
     private bool isFiring = false;
     private ShakeWrapper shakeWrapper; // Reference to ShakeWrapper
 

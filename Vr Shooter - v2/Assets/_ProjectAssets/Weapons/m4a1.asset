@@ -17,4 +17,4 @@ MonoBehaviour:
   magSize: 30
   fireSpeed: 25
   fireRate: 5
-  fireSound: {fileID: 8300000, guid: 1b766da7cc2d648aa84e36cb5fe8abcb, type: 3}
+  fireSound: {fileID: 8300000, guid: 57df31edac9a5ec4887a5a267414e91a, type: 3}

@@ -30,6 +30,9 @@ public class MonsterController : MonoBehaviour
     private float weight;
     public ParticleSystem deathParticles;
 
+    public AudioClip[] deathSounds; // Array to hold death sounds
+    private AudioSource audioSource; // Reference to AudioSource component
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -45,8 +48,9 @@ public class MonsterController : MonoBehaviour
 
         // Get the Vignette volume component
         
-
         weight = volume.weight;
+        // Add AudioSource component and assign it to the variable
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     public IEnumerator TakeDamageEffect()
@@ -174,6 +178,14 @@ public class MonsterController : MonoBehaviour
     {
         animator.SetTrigger("Die");
         Debug.Log("Monster died");
+
+        // Play a random death sound from the array
+        if (deathSounds.Length > 0)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, deathSounds.Length);
+            audioSource.PlayOneShot(deathSounds[randomIndex]);
+        }
+
         StartCoroutine(PauseAndDestroy(1.5f));
     }
 

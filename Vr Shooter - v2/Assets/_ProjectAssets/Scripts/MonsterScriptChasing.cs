@@ -6,7 +6,7 @@ public class MonsterChasingScript : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
     public float moveSpeed = 5f;  // Adjust this value to control the speed of the chasing
-    private bool hasStartedMoving = false;
+    //private bool hasStartedMoving = false;
 
     private Transform playerTransform;
     public Animator animator;

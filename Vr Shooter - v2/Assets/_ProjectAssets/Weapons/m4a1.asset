@@ -16,5 +16,5 @@ MonoBehaviour:
   damage: 50
   magSize: 30
   fireSpeed: 25
-  fireRate: 0.5
+  fireRate: 2
   fireSound: {fileID: 8300000, guid: 1b766da7cc2d648aa84e36cb5fe8abcb, type: 3}

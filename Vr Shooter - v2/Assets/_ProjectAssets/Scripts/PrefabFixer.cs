@@ -4,6 +4,7 @@ using UnityEngine;
 public class PrefabFixer : EditorWindow
 {
     [MenuItem("Tools/Fix Missing Prefab")]
+    [System.Obsolete]
     private static void FixPrefab()
     {
         string missingGuid = "874e80b8354615e4f93425327dac194a"; // Replace this with the missing GUID

@@ -14,7 +14,8 @@ public class ShakeDemo : MonoBehaviour
 
     delegate float Slider(float val, string prefix, float min, float max, int pad);
 
-	void OnGUI()
+    [System.Obsolete]
+    void OnGUI()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b44ceb4d12f4541bffa46d0233ce5d, type: 3}
   m_Name: glock9mm
   m_EditorClassIdentifier: 
-  weaponName: 
+  weaponName: glock9mm
   damage: 10
   magSize: 12
   fireSpeed: 20

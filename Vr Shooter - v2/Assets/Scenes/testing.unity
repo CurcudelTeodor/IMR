@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 702c64a50acc18b4487ba468c981bc5f,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 84efdee8ed292f64d89b36fb6dcd990c,
     type: 2}
 --- !u!196 &4
@@ -1327,7 +1328,7 @@ Transform:
   m_GameObject: {fileID: 116559000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.86, y: 1.681, z: 3.542}
+  m_LocalPosition: {x: 10.86, y: 1.681, z: 2.663}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11653,7 +11654,7 @@ Transform:
   m_GameObject: {fileID: 920533295}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.52, y: -0.44, z: 5.34}
+  m_LocalPosition: {x: -31.82, y: -0.44, z: 5.34}
   m_LocalScale: {x: 1.0152968, y: 3.7312, z: 1.3465527}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15884,7 +15885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: -1
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 932dddeb3fa9c174d8fc6d5b92de3503, type: 2}
@@ -24184,7 +24185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 07eb4bdb8fdb77343a40f200545c5841, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.245
+      value: 2.366
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 07eb4bdb8fdb77343a40f200545c5841, type: 3}
       propertyPath: m_LocalRotation.w

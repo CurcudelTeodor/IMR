@@ -12,7 +12,7 @@ public class WaveSpawner : MonoBehaviour
 
     public TextMeshProUGUI waveText;
     public Canvas waveCanvas;
-    public float waveTextDuration = 3f;
+    public float waveTextDuration;
     
     private Wave currentWave;
 
@@ -22,6 +22,8 @@ public class WaveSpawner : MonoBehaviour
     private int currentWaveIndex = 0;
     private bool stopSpawning = false;
     private bool waveInProgress = false;
+    private bool delayStarted = false;
+
 
     private void Awake()
     {
@@ -44,9 +46,13 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator DelayBeforeNextWave()
     {
-        yield return new WaitForSeconds(currentWave.PauseTimeAfterThisWaveEnded);
-
-        StartNextWave();
+        if (!delayStarted)
+        {
+            delayStarted = true;
+            yield return new WaitForSeconds(currentWave.PauseTimeAfterThisWaveEnded);
+            delayStarted = false;
+            StartNextWave();
+        }
     }
 
     private void StartNextWave()
@@ -121,8 +127,8 @@ public class WaveSpawner : MonoBehaviour
 
     public bool AllEnemiesDefeated()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Animal");
-        return enemies.Length == 0;
+        // Check if any enemies with the "Animal" tag are present in the scene
+        return GameObject.FindGameObjectWithTag("Animal") == null;
     }
 
     public bool AllWavesCompleted()
